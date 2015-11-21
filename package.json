@@ -1,6 +1,6 @@
 {
   "name": "redux-batch-middleware",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Batch redux actions",
   "license": "MIT",
   "keywords": [
