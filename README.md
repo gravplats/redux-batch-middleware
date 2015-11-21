@@ -17,19 +17,19 @@ npm install --save redux-batch-middleware
 Add as middleware:
 
 ```js
-    import { applyMiddleware, createStore } from 'redux';
-    import { batch, batching } from 'redx-batch-actions';
-    import reducers from './reducers';
+import { applyMiddleware, createStore } from 'redux';
+import { batch, batching } from 'redx-batch-actions';
+import reducers from './reducers';
 
-    let middleware = [batch];
+let middleware = [batch];
 
-    let store = applyMiddleware(...middleware)(createStore)(batching(reducers));
+let store = applyMiddleware(...middleware)(createStore)(batching(reducers));
 ```
 
 Dispatch multiple actions:
 
 ```js
-    store.dispatch([action1, action2]);
+store.dispatch([action1, action2]);
 ```
 
 ## API
