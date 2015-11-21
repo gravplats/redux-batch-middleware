@@ -1,0 +1,35 @@
+{
+  "name": "redux-batch-middleware",
+  "version": "0.0.0",
+  "description": "Batch redux actions",
+  "license": "MIT",
+  "keywords": [
+    "Redux",
+    "Batch"
+  ],
+  "repository": "mrydengren/redux-batch-middleware",
+  "main": "lib/index",
+  "jsnext:main": "modules/index",
+  "files": [
+    "lib",
+    "modules"
+  ],
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "build": "npm run clean && ./node_modules/.bin/babel ./modules -d lib --ignore *.ava.js",
+    "pretest": "./node_modules/.bin/eslint ./modules",
+    "test": "npm run build && ./node_modules/.bin/ava ./modules/**/*.ava.js",
+    "preversion": "npm test",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.5.0",
+    "babel": "^5.8.34",
+    "babel-eslint": "^4.1.5",
+    "eslint": "^1.10.1",
+    "eslint-config-billogram": "^0.1.0",
+    "redux": "^3.0.4",
+    "rimraf": "^2.4.4"
+  }
+}
