@@ -28,11 +28,13 @@
     "rimraf": "^2.5.0"
   },
   "scripts": {
-    "clean": "rimraf ./lib",
-    "build": "npm run clean && babel ./modules -d lib --ignore *.ava.js",
-    "pretest": "eslint --cache --fix ./modules",
-    "test": "ava --require=babel-register ./modules/**/*.ava.js",
+    "ava": "./scripts/run-ava.sh",
+    "eslint": "./scripts/run-eslint.sh",
+    "build": "./scripts/run-build.sh",
+    "pretest": "./scripts/run-eslint.sh",
+    "test": "./scripts/run-ava.sh",
+    "posttest": "./scripts/run-build.sh",
     "preversion": "npm test",
-    "prepublish": "npm run build"
+    "prepublish": "./scripts/run-build.sh"
   }
 }
