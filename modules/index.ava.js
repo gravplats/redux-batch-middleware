@@ -31,8 +31,6 @@ test('can dispatch non-batch action', (t) => {
 
     let actions = store.getState().actions;
     t.same(actions.map((action) => action.type), [type]);
-
-    t.end();
 });
 
 
@@ -45,6 +43,4 @@ test('can dispatch batch action', (t) => {
 
     let actions = store.getState().actions;
     t.same(actions.map((action) => action.type), [type1, type2]);
-
-    t.end();
 });
