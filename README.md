@@ -21,9 +21,9 @@ import { applyMiddleware, createStore } from 'redux';
 import { batch, batching } from 'redux-batch-actions';
 import reducers from './reducers';
 
-let middleware = [batch];
+const middleware = [batch];
 
-let store = applyMiddleware(...middleware)(createStore)(batching(reducers));
+const store = applyMiddleware(...middleware)(createStore)(batching(reducers));
 ```
 
 Dispatch multiple actions:
@@ -45,6 +45,10 @@ Redux middleware which converts a dispatched array of actions to a batch action.
 Type: `function`
 
 A reducer that should be able to handle batched actions, most likely the root reducer.
+
+### type
+
+The name of the batch type.
 
 ## License
 
