@@ -1,19 +1,17 @@
-const BatchActionType = '@@redux-batch-middleware/BATCH';
+export const type = '@@redux-batch-middleware/BATCH';
 
-
-export function batch({ dispatch }) {
+export const batch = ({ dispatch }) => {
     return (next) => (action) => {
         Array.isArray(action)
-            ? dispatch({ type: BatchActionType, payload: action })
+            ? dispatch({ type: type, payload: action })
             : next(action);
     };
-}
+};
 
-
-export function batching(reducer) {
+export const batching = (reducer) => {
     return function batcher(state, action) {
-        return action.type === BatchActionType
+        return action.type === type
             ? action.payload.reduce(batcher, state)
             : reducer(state, action);
     };
-}
+};
