@@ -30,7 +30,7 @@
   "scripts": {
     "clean": "rimraf ./lib",
     "build": "npm run clean && babel ./modules -d lib --ignore *.ava.js",
-    "pretest": "eslint ./modules",
+    "pretest": "eslint --cache --fix ./modules",
     "test": "ava --require=babel-register ./modules/**/*.ava.js",
     "preversion": "npm test",
     "prepublish": "npm run build"
