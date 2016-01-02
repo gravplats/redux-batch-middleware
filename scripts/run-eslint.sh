@@ -1,3 +1,3 @@
 #!/bin/bash
 
-eslint --cache --fix ./assets/
+eslint --cache --fix ./modules
