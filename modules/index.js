@@ -2,7 +2,7 @@ export const type = '@@redux-batch-middleware/BATCH';
 
 export const batch = ({ dispatch }) => {
     return (next) => (action) => {
-        Array.isArray(action)
+        return Array.isArray(action)
             ? dispatch({ type: type, payload: action })
             : next(action);
     };
