@@ -18,7 +18,7 @@ Add as middleware:
 
 ```js
 import { applyMiddleware, createStore } from 'redux';
-import { batch, batching } from 'redux-batch-actions';
+import { batch, batching } from 'redux-batch-middleware';
 import reducers from './reducers';
 
 const middleware = [batch];
