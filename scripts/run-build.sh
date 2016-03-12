@@ -1,4 +1,4 @@
 #!/bin/bash
 
-rimraf ./lib
+rm -rf ./lib
 babel ./modules -d lib --ignore *.ava.js
