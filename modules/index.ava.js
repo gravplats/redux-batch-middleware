@@ -1,16 +1,16 @@
 import test from 'ava';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 
-import { batch, batching } from '../lib/index';
+import { batch, batching } from './index';
 
 
-function createBatchStore() {
-    let middleware = [
+const createBatchStore = () => {
+    const middleware = [
         batch
     ];
 
-    let root = combineReducers({
-        actions: function(state = [], action = {}) {
+    const root = combineReducers({
+        actions: (state = [], action = {}) => {
             if (action.type === '@@redux/INIT') {
                 return state;
             }
@@ -20,27 +20,26 @@ function createBatchStore() {
     });
 
     return applyMiddleware(...middleware)(createStore)(batching(root));
-}
-
+};
 
 test('can dispatch non-batch action', (t) => {
-    let type = 'action type';
+    const type = 'action type';
 
-    let store = createBatchStore();
+    const store = createBatchStore();
     store.dispatch({ type });
 
-    let actions = store.getState().actions;
+    const actions = store.getState().actions;
     t.same(actions.map((action) => action.type), [type]);
 });
 
 
 test('can dispatch batch action', (t) => {
-    let type1 = 'action type 1';
-    let type2 = 'action type 2';
+    const type1 = 'action type 1';
+    const type2 = 'action type 2';
 
-    let store = createBatchStore();
+    const store = createBatchStore();
     store.dispatch([{ type: type1 }, { type: type2 }]);
 
-    let actions = store.getState().actions;
+    const actions = store.getState().actions;
     t.same(actions.map((action) => action.type), [type1, type2]);
 });
