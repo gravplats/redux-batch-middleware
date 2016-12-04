@@ -1,12 +1,15 @@
 import test from 'tape';
+
 import { applyMiddleware, combineReducers, createStore } from 'redux';
+import thunk from 'redux-thunk';
 
 import { batch, batching, type as batchType } from './index';
 
 
 const createBatchStore = () => {
     const middleware = [
-        batch
+        batch,
+        thunk
     ];
 
     const root = combineReducers({
@@ -52,6 +55,19 @@ test('can dispatch batch action', (t) => {
 
     const actions = store.getState().actions;
     t.same(actions.map((action) => action.type), [type1, type2]);
+
+    t.end();
+});
+
+test('can handle non-plain action', (t) => {
+    let wasCalled = false;
+    const store = createBatchStore();
+
+    const thunkAction = () => { wasCalled = true; };
+    const action = [thunkAction];
+
+    store.dispatch(action);
+    t.true(wasCalled);
 
     t.end();
 });

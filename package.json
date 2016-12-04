@@ -23,6 +23,7 @@
     "eslint": "^2.2.0",
     "eslint-config-billogram": "^0.3.0",
     "redux": "^3.3.1",
+    "redux-thunk": "^2.1.0",
     "tape": "^4.6.3"
   },
   "scripts": {

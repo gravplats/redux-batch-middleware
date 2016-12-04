@@ -2,9 +2,19 @@ export const type = '@@redux-batch-middleware/BATCH';
 
 export const batch = ({ dispatch }) => {
     return (next) => (action) => {
-        return Array.isArray(action)
-            ? dispatch({ type: type, payload: action })
-            : next(action);
+        if (Array.isArray(action)) {
+            const actions = action.reduce((memo, act) => {
+                const { plain, others } = memo;
+                return act.type !== undefined
+                    ? { plain: [...plain, act], others }
+                    : { plain: plain, others: [...others, act] };
+            }, { plain: [], others: [] });
+
+            actions.others.forEach(next);
+            return dispatch({ type, payload: actions.plain });
+        } else {
+            return next(action);
+        }
     };
 };
 
