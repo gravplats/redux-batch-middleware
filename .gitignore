@@ -1,5 +1,6 @@
 .DS_Store
 .eslintcache
 *.log
+es/
 lib/
 node_modules/

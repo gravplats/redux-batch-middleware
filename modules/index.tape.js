@@ -1,4 +1,4 @@
-import test from 'ava';
+import test from 'tape';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 
 import { batch, batching, type as batchType } from './index';
@@ -19,7 +19,7 @@ const createBatchStore = () => {
         }
     });
 
-    return applyMiddleware(...middleware)(createStore)(batching(root));
+    return createStore(batching(root), applyMiddleware(...middleware));
 };
 
 test('can dispatch non-batch action', (t) => {
@@ -34,6 +34,8 @@ test('can dispatch non-batch action', (t) => {
 
     const actions = store.getState().actions;
     t.same(actions.map((action) => action.type), [type]);
+
+    t.end();
 });
 
 
@@ -50,4 +52,6 @@ test('can dispatch batch action', (t) => {
 
     const actions = store.getState().actions;
     t.same(actions.map((action) => action.type), [type1, type2]);
+
+    t.end();
 });
