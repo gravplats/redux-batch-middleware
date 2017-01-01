@@ -19,7 +19,7 @@ const createBatchStore = () => {
         }
     });
 
-    return applyMiddleware(...middleware)(createStore)(batching(root));
+    return createStore(batching(root), applyMiddleware(...middleware));
 };
 
 test('can dispatch non-batch action', (t) => {

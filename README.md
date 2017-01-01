@@ -23,7 +23,7 @@ import reducers from './reducers';
 
 const middleware = [batch];
 
-const store = applyMiddleware(...middleware)(createStore)(batching(reducers));
+const store = createStore(batching(root), applyMiddleware(...middleware));;
 ```
 
 Dispatch multiple actions:
