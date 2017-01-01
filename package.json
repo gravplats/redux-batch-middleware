@@ -14,7 +14,6 @@
     "lib",
     "modules"
   ],
-  "dependencies": {},
   "devDependencies": {
     "ava": "^0.13.0",
     "babel-cli": "^6.6.5",
@@ -28,10 +27,10 @@
     "ava": "./scripts/run-ava.sh",
     "eslint": "./scripts/run-eslint.sh",
     "build": "./scripts/run-build.sh",
-    "pretest": "./scripts/run-eslint.sh",
-    "test": "./scripts/run-ava.sh",
-    "posttest": "./scripts/run-build.sh",
-    "preversion": "npm test",
-    "prepublish": "./scripts/run-build.sh"
+    "pretest": "yarn run eslint",
+    "test": "yarn run ava",
+    "posttest": "yarn run build",
+    "preversion": "yarn test",
+    "prepublish": "yarn run build"
   }
 }
