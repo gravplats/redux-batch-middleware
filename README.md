@@ -8,8 +8,16 @@ Batch [middleware](http://rackt.github.io/redux/docs/advanced/Middleware.html) f
 
 ## Install
 
+Using npm.
+
 ```
 npm install --save redux-batch-middleware
+```
+
+Using yarn.
+
+```
+yarn add redux-batch-middleware
 ```
 
 ## Usage
