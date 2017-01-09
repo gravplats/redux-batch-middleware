@@ -26,7 +26,7 @@
     "tape": "^4.6.3"
   },
   "scripts": {
-    "build": "yarn run build:commonjs",
+    "build": "yarn run build:commonjs && yarn run build:es",
     "build:commonjs": "./scripts/run-build-commonjs.sh",
     "build:es": "./scripts/run-build-es.sh",
     "eslint": "./scripts/run-eslint.sh",
