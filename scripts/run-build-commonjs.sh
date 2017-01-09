@@ -1,4 +1,4 @@
 #!/bin/bash
 
 rm -rf ./lib
-BABEL_END=commonjs babel ./modules --out-dir lib --ignore *.tape.js
+BABEL_ENV=commonjs babel ./modules --out-dir lib --ignore *.tape.js
