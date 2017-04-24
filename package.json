@@ -22,6 +22,7 @@
     "eslint": "^3.12.2",
     "eslint-config-coderesque": "^3.0.1",
     "faucet": "^0.0.1",
+    "flux-standard-action": "^1.2.0",
     "redux": "^3.3.1",
     "tape": "^4.6.3"
   },

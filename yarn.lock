@@ -1175,6 +1175,12 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
+flux-standard-action@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/flux-standard-action/-/flux-standard-action-1.2.0.tgz#d2d41612dde4cebddd11a76cfead8e84fc69ebdc"
+  dependencies:
+    lodash "^4.0.0"
+
 for-each@~0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/for-each/-/for-each-0.3.2.tgz#2c40450b9348e97f281322593ba96704b9abd4d4"
