@@ -1,8 +1,10 @@
+import { isFSA } from 'flux-standard-action';
+
 export const type = '@@redux-batch-middleware/BATCH';
 
 export const batch = ({ dispatch }) => (next) => (action) =>
   Array.isArray(action)
-    ? action.every(a => typeof a !== 'function')
+    ? action.every(isFSA)
       ? dispatch({ type: type, payload: action })
       : action.filter(Boolean).map(dispatch)
     : next(action);
